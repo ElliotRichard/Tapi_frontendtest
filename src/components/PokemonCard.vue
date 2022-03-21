@@ -1,10 +1,7 @@
 <template>
   <div class="pokemon">
     <div class="pokemon__stage">
-      <!-- <img
-        :src="INSERT OFFICIAL ARTWORK SPRITE"
-        class="pokemon__sprite"
-      /> -->
+      <img :src="pokemon.spriteUrl" class="pokemon__sprite" />
     </div>
     <div class="pokemon__details">
       <h3 class="pokemon__name">{{ pokemon.name | capitalize }}</h3>
@@ -12,27 +9,27 @@
         <tbody>
           <tr>
             <th>HP</th>
-            <td>INSERT STAT</td>
+            <td>{{ pokemon.hp }}</td>
           </tr>
           <tr>
             <th>Attack</th>
-            <td>INSERT STAT</td>
+            <td>{{ pokemon.attack }}</td>
           </tr>
           <tr>
             <th>Defense</th>
-            <td>INSERT STAT</td>
+            <td>{{ pokemon.defense }}</td>
           </tr>
           <tr>
             <th>Sp. Atk</th>
-            <td>INSERT STAT</td>
+            <td>{{ pokemon.specialAttack }}</td>
           </tr>
           <tr>
             <th>Sp. Def</th>
-            <td>INSERT STAT</td>
+            <td>{{ pokemon.specialDefense }}</td>
           </tr>
           <tr>
             <th>Speed</th>
-            <td>INSERT STAT</td>
+            <td>{{ pokemon.speed }}</td>
           </tr>
         </tbody>
       </table>
@@ -42,7 +39,7 @@
 
 <script>
 import { capitalize } from "lodash-es"
-
+import { Pokemon } from "../classes/pokemon"
 export default {
   name: "PokemonCard",
   filters: {
@@ -50,7 +47,7 @@ export default {
   },
   props: {
     pokemon: {
-      type: Object,
+      type: Pokemon,
       required: true,
     },
   },

@@ -16,6 +16,12 @@ body {
   margin: 1rem auto;
 }
 
+.loader_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .loader {
   display: block;
   max-width: 64px;
@@ -131,4 +137,9 @@ body {
   &::-webkit-search-decoration {
     display: none;
   }
+}
+
+.loader {
+  position: absolute;
+  margin: auto 50vh;
 }

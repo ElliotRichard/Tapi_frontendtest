@@ -15,7 +15,7 @@
 <script>
 import { ref, computed } from "@vue/composition-api"
 import SearchIcon from "../icons/search.svg"
-
+import { debounce } from "lodash-es"
 export default {
   name: "SearchInput",
   components: {
@@ -44,7 +44,7 @@ export default {
 
     const listeners = computed(() => ({
       ...context.listeners,
-      input: onInput,
+      input: debounce(onInput, 250, { maxWait: 750 }),
     }))
 
     const focusInput = () => {
@@ -55,4 +55,3 @@ export default {
   },
 }
 </script>
-
